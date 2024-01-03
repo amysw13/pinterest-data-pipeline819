@@ -2,19 +2,26 @@
 
 # Table of contents
 
+# TODO
 
-#TODO
+---
 
---- 
 ## Description
-Pinterest crunches billions of data points every day to decide how to provide more value to their users. In this project, you'll create a similar system using the AWS Cloud. 
 
+AWS-hosted end-to-end data pipeline inspired by Pinterest's experiment processing pipeline.
+Pinterest crunches billions of data points every day to decide how to provide more value to their users. In this project, you'll create a similar system using the AWS Cloud.
+
+The pipeline is developed using a Lambda architecture. The batch data is ingested using AWS API Gateway and AWS MSK  and then stored in an AWS S3 bucket.
+
+The batch data is then read from the S3 bucket into Databricks where it is processed using Apache Spark.
+
+The streaming data is read near real-time from AWS Kinesis using Spark Structured Streaming in Databricks and stored in Databricks Delta Tables for long term storage.
 
 ![Amazon AWS Badge](https://img.shields.io/badge/Amazon%20AWS-232F3E?logo=amazonaws&logoColor=fff&style=for-the-badge)
 
 ## Aim
 
-#TODO
+# TODO
 
 ## Learnt Objectives
 
@@ -29,6 +36,7 @@ Pinterest crunches billions of data points every day to decide how to provide mo
 
 ![Amazon S3 Badge](https://img.shields.io/badge/Amazon%20S3-569A31?logo=amazons3&logoColor=fff&style=for-the-badge)
 ![Amazon Identity Access Management Badge](https://img.shields.io/badge/Amazon%20Identity%20Access%20Management-DD344C?logo=amazoniam&logoColor=fff&style=for-the-badge)
+
 - Configuring S3 bucket and MSK Connect
 - Confluent to connect to S3 bucket and Kafka topics
 - Creation of customised plugins and configuring MSK connector with IAM roles
@@ -61,20 +69,17 @@ Pinterest crunches billions of data points every day to decide how to provide mo
 
 - Troubleshooting through all configurations and set up of AWS services and users on AWS CLI
   - Including checking through all IAM permissions, MSK connect plugin and connector configuration, EC2 instances connection issues, API gateway configurations.
-- Troubleshooting connection issues in Databricks, credentials configuration and Delta data formatting issues. 
+- Troubleshooting connection issues in Databricks, credentials configuration and Delta data formatting issues.
 
 # Installation and Usage Instructions ⚙
-
 
 ## Example Use / Demo
 
 # File Structure 📂
 
-
 # License information 🗒
 
-
-# Open source packages used in this project
+# Technologies used in this project
 
 ![Jupyter](https://img.shields.io/badge/Jupyter-F37626.svg?&style=for-the-badge&logo=Jupyter&logoColor=white)
 ![VsCode](https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
@@ -92,3 +97,5 @@ Pinterest crunches billions of data points every day to decide how to provide mo
 ![Amazon Identity Access Management Badge](https://img.shields.io/badge/Amazon%20Identity%20Access%20Management-DD344C?logo=amazoniam&logoColor=fff&style=for-the-badge)
 ![Amazon S3 Badge](https://img.shields.io/badge/Amazon%20S3-569A31?logo=amazons3&logoColor=fff&style=for-the-badge)
 ![Amazon API Gateway Badge](https://img.shields.io/badge/Amazon%20API%20Gateway-FF4F8B?logo=amazonapigateway&logoColor=fff&style=for-the-badge)
+
+●Technologies used: Kafka, AWS MSK, MSK Connect, AWS API Gateway, AWS S3, Spark, Spark Structured Streaming, Databricks, Airflow, AWS MWAA, AWS Kinesis.
