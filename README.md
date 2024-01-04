@@ -2,7 +2,7 @@
 
 # Table of contents
 
-# TODO
+
 
 ---
 
@@ -21,7 +21,7 @@ The streaming data is read near real-time from AWS Kinesis using Spark Structure
 
 ## Aim
 
-# TODO
+Build an end-to-end data pipeline using AWS-hosted cloud technologies. 
 
 ## Learnt Objectives
 
@@ -60,10 +60,20 @@ The streaming data is read near real-time from AWS Kinesis using Spark Structure
 ![Databricks Badge](https://img.shields.io/badge/Databricks-FF3621?logo=databricks&logoColor=fff&style=for-the-badge)
 
 - Creating Databricks workspace
-- Creating access key and secret access key for in AWS for full s3 access
+- Creating access key and secret access key for in AWS for full S3 access
 - Loading in credential file to Databricks
-- Mounting s3 bucket in Databricks
+- Mounting S3 bucket in Databricks
 - Reading in .json format data into Databricks dataframes
+  
+![Apache Spark Badge](https://img.shields.io/badge/Apache%20Spark-E25A1C?logo=apachespark&logoColor=fff&style=for-the-badge)
+
+- Cleaning data using PySparks
+- Dataframe joins
+- Querying and aggregations of data
+  - group by
+  - classifying values into groups
+  - alias
+  - sorting data
 
 ---
 
@@ -76,6 +86,10 @@ The streaming data is read near real-time from AWS Kinesis using Spark Structure
 ## Example Use / Demo
 
 # File Structure 📂
+
+- 📂 __pinterest\-data\-pipeline819__
+   - 📄 [README.md](README.md)
+   - 📄 [Reading, cleaning and querying Pinterest Data from mounted S3 bucket using Sparks.ipynb](Reading%2C%20cleaning%20and%20querying%20Pinterest%20Data%20from%20mounted%20S3%20bucket%20using%20Sparks.ipynb)
 
 # License information 🗒
 
@@ -94,8 +108,10 @@ The streaming data is read near real-time from AWS Kinesis using Spark Structure
 ![Amazon AWS Badge](https://img.shields.io/badge/Amazon%20AWS-232F3E?logo=amazonaws&logoColor=fff&style=for-the-badge)
 ![Amazon EC2 Badge](https://img.shields.io/badge/Amazon%20EC2-F90?logo=amazonec2&logoColor=fff&style=for-the-badge)
 ![Apache Kafka Badge](https://img.shields.io/badge/Apache%20Kafka-231F20?logo=apachekafka&logoColor=fff&style=for-the-badge)
+![Amazon MSK Connect](https://img.shields.io/badge/Amazon%20MSK%20Connect-8a42f5?style=for-the-badge&logo={LOGO-NAME}&logoColor=white)
 ![Amazon Identity Access Management Badge](https://img.shields.io/badge/Amazon%20Identity%20Access%20Management-DD344C?logo=amazoniam&logoColor=fff&style=for-the-badge)
 ![Amazon S3 Badge](https://img.shields.io/badge/Amazon%20S3-569A31?logo=amazons3&logoColor=fff&style=for-the-badge)
 ![Amazon API Gateway Badge](https://img.shields.io/badge/Amazon%20API%20Gateway-FF4F8B?logo=amazonapigateway&logoColor=fff&style=for-the-badge)
+
 
 ●Technologies used: Kafka, AWS MSK, MSK Connect, AWS API Gateway, AWS S3, Spark, Spark Structured Streaming, Databricks, Airflow, AWS MWAA, AWS Kinesis.
