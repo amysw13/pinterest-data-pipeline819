@@ -75,6 +75,14 @@ Build an end-to-end data pipeline using AWS-hosted cloud technologies.
   - alias
   - sorting data
 
+![Apache Airflow Badge](https://img.shields.io/badge/Apache%20Airflow-017CEE?logo=apacheairflow&logoColor=fff&style=for-the-badge)
+
+- Creating DAG to trigger Databricks notebook to run on schedule
+- Uploading DAG to S3 bucket
+- Using AWS MWAA environment to access Airflow UI
+- Triggering DAG successfully
+- Ensuring Databricks notebook is compatible with DAG and Airflow workflow
+  
 ---
 
 - Troubleshooting through all configurations and set up of AWS services and users on AWS CLI
@@ -88,6 +96,7 @@ Build an end-to-end data pipeline using AWS-hosted cloud technologies.
 # File Structure 📂
 
 - 📂 __pinterest\-data\-pipeline819__
+   - 📄 [124714cdee67\_dag.py](124714cdee67_dag.py)
    - 📄 [README.md](README.md)
    - 📄 [Reading, cleaning and querying Pinterest Data from mounted S3 bucket using Sparks.ipynb](Reading%2C%20cleaning%20and%20querying%20Pinterest%20Data%20from%20mounted%20S3%20bucket%20using%20Sparks.ipynb)
 
@@ -112,6 +121,7 @@ Build an end-to-end data pipeline using AWS-hosted cloud technologies.
 ![Amazon Identity Access Management Badge](https://img.shields.io/badge/Amazon%20Identity%20Access%20Management-DD344C?logo=amazoniam&logoColor=fff&style=for-the-badge)
 ![Amazon S3 Badge](https://img.shields.io/badge/Amazon%20S3-569A31?logo=amazons3&logoColor=fff&style=for-the-badge)
 ![Amazon API Gateway Badge](https://img.shields.io/badge/Amazon%20API%20Gateway-FF4F8B?logo=amazonapigateway&logoColor=fff&style=for-the-badge)
+![Apache Airflow Badge](https://img.shields.io/badge/Apache%20Airflow-017CEE?logo=apacheairflow&logoColor=fff&style=for-the-badge)
 
 
 ●Technologies used: Kafka, AWS MSK, MSK Connect, AWS API Gateway, AWS S3, Spark, Spark Structured Streaming, Databricks, Airflow, AWS MWAA, AWS Kinesis.
