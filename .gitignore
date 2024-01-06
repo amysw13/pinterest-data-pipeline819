@@ -5,4 +5,3 @@ __pycache__/
 .Pinterest_data_pipeline.ipynb
 .Mount S3 bucket to Databricks.ipynb
 .list.md
-Pinterest_architecture.detailed.png

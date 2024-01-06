@@ -1,9 +1,17 @@
-[![Snowplow logo][logo-image]](https://snowplowanalytics.com)
-
 # Pinterest Data Pipeline
 
 ## Table of contents
 
+- [Pinterest Data Pipeline](#pinterest-data-pipeline)
+  - [Table of contents](#table-of-contents)
+    - [Description](#description)
+    - [Aim](#aim)
+      - [Configuration Troubleshooting](#configuration-troubleshooting)
+  - [Prerequisites 🔧](#prerequisites-)
+    - [Example Use 📎](#example-use-)
+  - [Technologies used in this project](#technologies-used-in-this-project)
+  - [File Structure 📂](#file-structure-)
+  
 ---
 
 ### Description
@@ -15,16 +23,17 @@ The pipeline is developed using a Lambda architecture. The batch data is ingeste
 
 The streaming data is read near real-time from AWS Kinesis using Spark Structured Streaming in Databricks and stored in Databricks Delta Tables for long term storage.
 
-![End-to-end data pipeline AWS cloud architecture detailed](/home/amysw/pinterest-data-pipeline819/Pinterest_architecture.detailed.png "End-to-end data pipeline AWS cloud architecture, integrated with Databricks and displaying IAM and permission access points.")
+![End-to-end data pipeline AWS cloud architecture detailed](img/Pinterest_architecture.detailed.png "End-to-end data pipeline AWS cloud architecture, integrated with Databricks and displaying IAM and permission access points.")
+> End-to-end data pipeline AWS cloud architecture, integrated with Databricks and displaying IAM and permission access points.
 
 ### Aim
 
-Build an end-to-end data pipeline using AWS-hosted cloud technologies, integrated with Databricks for proccessing and long-term storage.
+Build an end-to-end data pipeline using AWS-hosted cloud technologies, integrated with Databricks for processing and long-term storage.
 
 The pipeline facilitates social media analytics, of stream data in real-time and of data at rest for sentimental analysis, trending categories and user engagement.
 
 <details>
-<summary><h3>Learnt Objectives</h3></summary>
+<summary><h3>Achievement Outcomes📖</h3></summary>
 
 ![Amazon EC2 Badge](https://img.shields.io/badge/Amazon%20EC2-F90?logo=amazonec2&logoColor=fff&style=plastic)
 ![Apache Kafka Badge](https://img.shields.io/badge/Apache%20Kafka-231F20?logo=apachekafka&logoColor=fff&style=plastic)
@@ -107,7 +116,7 @@ The pipeline facilitates social media analytics, of stream data in real-time and
   
 </details>
 
-## Prerequisites
+## Prerequisites 🔧
 
 - `AWS account` with appropriate permissions for EC2, S3, AWS MSK, MSK connect, AWS API gateway, AWS MWAA, AWS Kinesis
 - `AWS CLI` installation and configured with AWS account credentials
@@ -115,12 +124,63 @@ The pipeline facilitates social media analytics, of stream data in real-time and
 
 > Best configured with `Linux`, `MAC` or on windows with `WSL`
 
-### Example Use / Demo
+### Example Use 📎
 
+`Batch Processing:`
+
+1. Initiate configured AWS cloud services
+
+   ```bash
+   # Connect to EC2 client machine
+   ssh -i "<aws_iam_user_name>-key-pair.pem" ec2-user@ec2-3-81-220-171.compute-1.amazonaws.com
+
+   # Start Kafka REST API
+   cd confluent-7.2.0/bin
+
+   ./kafka-rest-start /home/ec2-user/confluent-7.2.0/etc/kafka-rest/kafka-rest.properties
+   ```
+
+2. Run python script to ingest data to S3 bucket with REST API requests
+
+     ```py
+     user_posting_emulation.py
+     ```
+
+3. `Airflow` DAG to trigger Databricks Notebook on a specified schedule in AWS MWAA Airflow UI
+
+    ```py
+    # Airflow DAG script, loaded into S3 bucket and connected to AWS MWAA environment
+    124714cdee67_dag.py
+    ```
+
+    > ![Airflow UI](img/Airflow_dag.png "Airflow UI testing triggering DAG on a daily schedule.")
+
+4. Mount S3 bucket to configured Databricks workspace and read in batch data for processing with Databricks Notebook
+
+   ```shell
+   # Databricks Notebook
+   Reading, cleaning and querying Pinterest Data from mounted S3 bucket using Sparks.ipynb
+   ```
+
+
+`Stream Processing:`
+
+1. Run python script to stream data to Kinesis Data streams with configured REST API
+
+    ```py
+    user_posting_emulation_streaming.py
+    ```
+
+2. Read in streaming data to Databricks with Databricks Notebook, and clean and write stream data to delta tables.
+
+   ```shell
+   # Databricks Notebook
+    Reading and cleaning data from Kinesis Data Stream.ipynb
+   ```
 
 ## Technologies used in this project
 
-![Amazon AWS Badge](https://img.shields.io/badge/Amazon%20AWS-232F3E?logo=amazonaws&logoColor=fff&style=plastic)
+![Amazon AWS Badge](https://img.shields.io/badge/Amazon%20AWS-232F3E?logo=amazonaws&logoColor=fff&style=plastic) - AWS Account and AWS services
 
 ![Amazon EC2 Badge](https://img.shields.io/badge/Amazon%20EC2-F90?logo=amazonec2&logoColor=fff&style=plastic) - EC2 instance and client machine
 
@@ -150,5 +210,3 @@ The pipeline facilitates social media analytics, of stream data in real-time and
   - 📄 [requirements.txt](requirements.txt)
   - 📄 [user\_posting\_emulation.py](user_posting_emulation.py)
   - 📄 [user\_posting\_emulation\_streaming.py](user_posting_emulation_streaming.py)
-
-## License information 🗒
