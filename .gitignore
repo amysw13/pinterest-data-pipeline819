@@ -1,0 +1,8 @@
+.vscode/
+__pycache__/
+.pinterest-data-pipeline819.code-workspace
+124714cdee67-key-pair.pem
+.Pinterest_data_pipeline.ipynb
+.Mount S3 bucket to Databricks.ipynb
+.list.md
+Pinterest_architecture.detailed.png
