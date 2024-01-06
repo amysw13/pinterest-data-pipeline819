@@ -1,5 +1,4 @@
 import requests
-from time import sleep
 import random
 from multiprocessing import Process
 import json
@@ -7,6 +6,7 @@ import sqlalchemy
 from sqlalchemy import text
 from json import dumps
 from json import loads
+from time import sleep
 
 random.seed(100)
 
@@ -29,9 +29,11 @@ class AWSDBConnector:
     
 new_connector = AWSDBConnector()
 
-def run_infinite_post_data_loop():                
-    #t_end = time.time() + 20 #run for 20 seconds
-    #while time.time() < t_end:
+def send_data_kinesis_data_streams():
+    '''
+    Obtaining data from Pinterest AWS RDS database in an infinite loop, and sending to Kinesis Data Streams
+    with invoke URL.
+    '''                
     while True:
         sleep(random.randrange(0, 2))
         random_row = random.randint(0, 11000)
@@ -48,13 +50,11 @@ def run_infinite_post_data_loop():
             
             for row in pin_selected_row:
                 pin_result = dict(row._mapping)
-                print(pin_result)
                 pin_payload = json.dumps({
-                    "StreamName": "streaming-124714cdee67-pin",
-                    "Data": {"value": [pin_result]
-                            },
-                            "PartitionKey": "partition-0"
-                            }, default = str)
+                "StreamName": "streaming-124714cdee67-pin",
+                "Data": pin_result,
+                "PartitionKey": "test"
+                }, default = str)
                 print(pin_payload)
 
                 pin_response = requests.request("PUT", f"{url}streaming-124714cdee67-pin/record", headers=headers, data=pin_payload)
@@ -63,20 +63,18 @@ def run_infinite_post_data_loop():
                     print("Record successfully sent to Kinesis Pin Stream.")
                 else:
                     print("Failed to send record to Kinesis Pin Stream. Status code:", pin_response.status_code)
-                    sleep(0.5)
+                    sleep(1)
 
             geo_string = text(f"SELECT * FROM geolocation_data LIMIT {random_row}, 1")
             geo_selected_row = connection.execute(geo_string)
             
             for row in geo_selected_row:
                 geo_result = dict(row._mapping)
-                print(geo_result)
                 geo_payload = json.dumps({
-                    "StreamName": "streaming-124714cdee67-geo",
-                    "Data": {"value": [geo_result]
-                            },
-                            "PartitionKey": "partition-0"
-                            }, default = str)
+                "StreamName": "streaming-124714cdee67-geo",
+                "Data": geo_result,
+                "PartitionKey": "test"
+                }, default = str)
                 print(geo_payload)
                 geo_response = requests.request("PUT", f"{url}streaming-124714cdee67-geo/record", headers=headers, data=geo_payload)
 
@@ -84,20 +82,18 @@ def run_infinite_post_data_loop():
                     print("Record successfully sent to Kinesis Geo Stream.")
                 else:
                     print("Failed to send record to Kinesis Geo Stream. Status code:", geo_response.status_code)
-                    sleep(0.5)
+                    sleep(1)
 
             user_string = text(f"SELECT * FROM user_data LIMIT {random_row}, 1")
             user_selected_row = connection.execute(user_string)
             
             for row in user_selected_row:
                 user_result = dict(row._mapping)
-                print(user_result)
                 user_payload = json.dumps({
-                    "StreamName": "streaming-124714cdee67-user",
-                    "Data": {"value": [user_result]
-                            },
-                            "PartitionKey": "partition-0"
-                            }, default = str)
+                "StreamName": "streaming-124714cdee67-user",
+                "Data": user_result,
+                "PartitionKey": "test"
+                }, default = str)
                 print(user_payload)
 
                 user_response = requests.request("PUT", f"{url}streaming-124714cdee67-user/record", headers=headers, data=user_payload)
@@ -106,8 +102,8 @@ def run_infinite_post_data_loop():
                     print("Record successfully sent to Kinesis User Stream.")
                 else:
                     print("Failed to send record to Kinesis User Stream. Status code:", user_response.status_code)
-                    sleep(0.5)
+                    sleep(1)
 
 if __name__ == "__main__":
     print('Working')
-    run_infinite_post_data_loop()
+    send_data_kinesis_data_streams()

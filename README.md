@@ -82,7 +82,17 @@ Build an end-to-end data pipeline using AWS-hosted cloud technologies.
 - Using AWS MWAA environment to access Airflow UI
 - Triggering DAG successfully
 - Ensuring Databricks notebook is compatible with DAG and Airflow workflow
-  
+
+![Amazon Kinesis](https://img.shields.io/badge/Amazon%20Kinesis-8a42f5?style=for-the-badge&logo={LOGO-NAME}&logoColor=white)
+
+- Creating data streams in AWS Kinesis console
+- Configuring REST API with Kinesis proxy integration
+  - List streams
+  - Create, describe and delete streams
+  - Add records to streams
+- Sending data to Kinesis Data Streams with REST APIs
+- 
+
 ---
 
 - Troubleshooting through all configurations and set up of AWS services and users on AWS CLI
