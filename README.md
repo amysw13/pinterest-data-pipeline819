@@ -130,20 +130,20 @@ The pipeline facilitates social media analytics, of stream data in real-time and
 
 1. Initiate configured AWS cloud services
 
-  [example\-key\-pair.pem](example-key-pair.pem)
+     [example\-key\-pair.pem](example-key-pair.pem) located in project directory
 
-   ```bash
-   # Make sure access to key-pair.pem is not public
-   chmod 400 <aws_iam_user_name>-key-pair.pem
+      ```bash
+      # Make sure access to key-pair.pem is not public
+      chmod 400 <aws_iam_user_name>-key-pair.pem
 
-   # Connect to EC2 client machine
-   ssh -i "<aws_iam_user_name>-key-pair.pem" ec2-user@ec2-3-81-220-171.compute-1.amazonaws.com
+      # Connect to EC2 client machine
+      ssh -i "<aws_iam_user_name>-key-pair.pem" ec2-user@ec2-3-81-220-171.compute-1.amazonaws.com
 
-  # Navigate to 'confluent/bin' directory
-   cd confluent-7.2.0/bin
-  # Start Kafka REST API
-   ./kafka-rest-start /home/ec2-user/confluent-7.2.0/etc/kafka-rest/kafka-rest.properties
-   ```
+     # Navigate to 'confluent/bin' directory
+      cd confluent-7.2.0/bin
+     # Start Kafka REST API
+      ./kafka-rest-start /home/ec2-user/confluent-7.2.0/etc/kafka-rest/kafka-rest.properties
+      ```
 
 2. Run python script to ingest data to S3 bucket with REST API requests
 
