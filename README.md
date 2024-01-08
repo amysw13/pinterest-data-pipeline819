@@ -130,13 +130,18 @@ The pipeline facilitates social media analytics, of stream data in real-time and
 
 1. Initiate configured AWS cloud services
 
+  [example\-key\-pair.pem](example-key-pair.pem)
+
    ```bash
+   # Make sure access to key-pair.pem is not public
+   chmod 400 <aws_iam_user_name>-key-pair.pem
+
    # Connect to EC2 client machine
    ssh -i "<aws_iam_user_name>-key-pair.pem" ec2-user@ec2-3-81-220-171.compute-1.amazonaws.com
 
-   # Start Kafka REST API
+  # Navigate to 'confluent/bin' directory
    cd confluent-7.2.0/bin
-
+  # Start Kafka REST API
    ./kafka-rest-start /home/ec2-user/confluent-7.2.0/etc/kafka-rest/kafka-rest.properties
    ```
 
@@ -203,10 +208,14 @@ The pipeline facilitates social media analytics, of stream data in real-time and
 ## File Structure 📂
 
 - 📂 __pinterest\-data\-pipeline819__
+  - 📄 [124714cdee67\-key\-pair.pem](124714cdee67-key-pair.pem)
   - 📄 [124714cdee67\_dag.py](124714cdee67_dag.py)
   - 📄 [README.md](README.md)
   - 📄 [Reading and cleaning data from Kinesis Data Stream.ipynb](Reading%20and%20cleaning%20data%20from%20Kinesis%20Data%20Stream.ipynb)
   - 📄 [Reading, cleaning and querying Pinterest Data from mounted S3 bucket using Sparks.ipynb](Reading%2C%20cleaning%20and%20querying%20Pinterest%20Data%20from%20mounted%20S3%20bucket%20using%20Sparks.ipynb)
-  - 📄 [requirements.txt](requirements.txt)
+  - 📄 [example\-key\-pair.pem](example-key-pair.pem)
+  - 📂 __img__
+    - 📄 [Airflow\_dag.png](img/Airflow_dag.png)
+    - 📄 [Pinterest\_architecture.detailed.png](img/Pinterest_architecture.detailed.png)
   - 📄 [user\_posting\_emulation.py](user_posting_emulation.py)
   - 📄 [user\_posting\_emulation\_streaming.py](user_posting_emulation_streaming.py)
