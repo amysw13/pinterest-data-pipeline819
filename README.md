@@ -8,6 +8,7 @@
     - [Aim](#aim)
       - [Configuration Troubleshooting](#configuration-troubleshooting)
   - [Prerequisites 🔧](#prerequisites-)
+    - [AWS Configuration Example ⚙️](#aws-configuration-example-️)
     - [Example Use 📎](#example-use-)
   - [Technologies used in this project](#technologies-used-in-this-project)
   - [File Structure 📂](#file-structure-)
@@ -124,6 +125,42 @@ The pipeline facilitates social media analytics, of stream data in real-time and
 
 > Best configured with `Linux`, `MAC` or on windows with `WSL`
 
+### AWS Configuration Example ⚙️
+
+`Batch Processing:`
+
+![Amazon EC2 Badge](https://img.shields.io/badge/Amazon%20EC2-F90?logo=amazonec2&logoColor=fff&style=plastic)
+
+> EC2 Key-Pair information for "-key-pair.pem" ⤵️
+
+![](gif/1.EC2_key_pair_small.gif)
+
+> EC2 SSH Connection instructions and command ⤵️
+
+![](gif/2.EC2_ssh_connect_small.gif)
+
+![Amazon Identity Access Management Badge](https://img.shields.io/badge/Amazon%20Identity%20Access%20Management-DD344C?logo=amazoniam&logoColor=fff&style=plastic)
+
+> Edit IAM trust policy for EC2 access-role ⤵️
+
+![](gif/3.IAM_role_trust_policy_ec2_access_small.gif)
+
+---
+
+`Stream Processing:`
+
+![Amazon Kinesis](https://img.shields.io/badge/Amazon%20Kinesis-8a42f5?style=plastic&logo={LOGO-NAME}&logoColor=white)
+
+> Creating Kinesis Data Streams in AWS ⤵️
+
+![](gif/1.Kinesis_Data_Stream_creation_small.gif)
+
+> API Kinesis proxy integration, resources and method configuration ⤵️
+
+![](gif/2.API_resource_methods_kinesis_streams_small.gif)
+
+---
+
 ### Example Use 📎
 
 `Batch Processing:`
@@ -167,6 +204,7 @@ The pipeline facilitates social media analytics, of stream data in real-time and
    Reading, cleaning and querying Pinterest Data from mounted S3 bucket using Sparks.ipynb
    ```
 
+---
 
 `Stream Processing:`
 
@@ -191,7 +229,7 @@ The pipeline facilitates social media analytics, of stream data in real-time and
 
 ![Apache Kafka Badge](https://img.shields.io/badge/Apache%20Kafka-231F20?logo=apachekafka&logoColor=fff&style=plastic) - Kafka and Confluent to connect with S3 buckets and topic creation and consuming data
 
-![Amazon MSK Connect](https://img.shields.io/badge/Amazon%20MSK%20Connect-8a42f5?style=plastic&logo={LOGO-NAME}&logoColor=white) - MSK cluster creation and connection from API to S3 buckets.
+![Amazon MSK Connect](https://img.shields.io/badge/Amazon%20MSK%20Connect-8a42f5?style=plastic&logo={LOGO-NAME}&logoColor=white) - MSK cluster creation and connection from API to S3 buckets
 
 ![Amazon Identity Access Management Badge](https://img.shields.io/badge/Amazon%20Identity%20Access%20Management-DD344C?logo=amazoniam&logoColor=fff&style=plastic) - IAM access roles
 
@@ -201,20 +239,28 @@ The pipeline facilitates social media analytics, of stream data in real-time and
 
 ![Apache Airflow Badge](https://img.shields.io/badge/Apache%20Airflow-017CEE?logo=apacheairflow&logoColor=fff&style=plastic) - Orchestrating workflows on a schedule with DAGs
 
-![Databricks Badge](https://img.shields.io/badge/Databricks-FF3621?logo=databricks&logoColor=fff&style=plastic) - Data processing and long term storage in Delta tables
+![Databricks Badge](https://img.shields.io/badge/Databricks-FF3621?logo=databricks&logoColor=fff&style=plastic) - Mounting AWS S3 buckets for reading in batch data, reading and writing streaming data, data processing and long term storage in Delta tables
 
 ![Apache Spark Badge](https://img.shields.io/badge/Apache%20Spark-E25A1C?logo=apachespark&logoColor=fff&style=plastic) - Spark structured streaming and data processing in Databricks
+
+![Amazon Kinesis](https://img.shields.io/badge/Amazon%20Kinesis-8a42f5?style=plastic&logo={LOGO-NAME}&logoColor=white) - Creating Kinesis Data Streams and streaming data through REST APIs
 
 ## File Structure 📂
 
 - 📂 __pinterest\-data\-pipeline819__
   - 📄 [124714cdee67\_dag.py](124714cdee67_dag.py)
   - 📄 [README.md](README.md)
-  - 📄 [Reading and cleaning data from Kinesis Data Stream.ipynb](Reading%20and%20cleaning%20data%20from%20Kinesis%20Data%20Stream.ipynb)
-  - 📄 [Reading, cleaning and querying Pinterest Data from mounted S3 bucket using Sparks.ipynb](Reading%2C%20cleaning%20and%20querying%20Pinterest%20Data%20from%20mounted%20S3%20bucket%20using%20Sparks.ipynb)
+  - 📄 [Reading and cleaning data from Kinesis Data Stream.ipynb(Reading%20and%20cleaning%20data%20from%20Kinesis%20Data%20Stream.ipynb)
+  - 📄 [Reading, cleaning and querying Pinterest Data from mounted S3 bucketusing Sparks.ipynb(Reading%2C%20cleaning%20and%20querying%20Pinterest%20Data%20from%20mounted%203%20bucket%20using%20Sparks.ipynb)
   - 📄 [example\-key\-pair.pem](example-key-pair.pem)
+  - 📂 __gif__
+    - 📄 [1.EC2\_key\_pair\_small.gif](gif/1.EC2_key_pair_small.gif)
+    - 📄 [1.Kinesis\_Data\_Stream\_creation\_small.gif](gif/1.Kinesis_Data_Stream_creation_small.gif)
+    - 📄 [2.API\_resource\_methods\_kinesis\_streams\_small.gif](gif/2.API_resource_methods_kinesis_streams_small.gif)
+    - 📄 [2.EC2\_ssh\_connect\_small.gif](gif/2.EC2_ssh_connect_small.gif)
+    - 📄 [3.IAM\_role\_trust\_policy\_ec2\_access\_small.gif](gif/3.IAM_role_trust_policy_ec2_access_small.gif)
   - 📂 __img__
     - 📄 [Airflow\_dag.png](img/Airflow_dag.png)
     - 📄 [Pinterest\_architecture.detailed.png](img/Pinterest_architecture.detailed.png)
   - 📄 [user\_posting\_emulation.py](user_posting_emulation.py)
-  - 📄 [user\_posting\_emulation\_streaming.py](user_posting_emulation_streaming.py)
+  - 📄 [user\_posting\_emulation\_streaming.py](user_posting_emulation_streamingpy)
