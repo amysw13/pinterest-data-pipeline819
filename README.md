@@ -208,7 +208,6 @@ The pipeline facilitates social media analytics, of stream data in real-time and
 ## File Structure 📂
 
 - 📂 __pinterest\-data\-pipeline819__
-  - 📄 [124714cdee67\-key\-pair.pem](124714cdee67-key-pair.pem)
   - 📄 [124714cdee67\_dag.py](124714cdee67_dag.py)
   - 📄 [README.md](README.md)
   - 📄 [Reading and cleaning data from Kinesis Data Stream.ipynb](Reading%20and%20cleaning%20data%20from%20Kinesis%20Data%20Stream.ipynb)
