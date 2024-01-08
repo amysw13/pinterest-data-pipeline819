@@ -1,3 +1,4 @@
+.gitignore
 .vscode/
 __pycache__/
 .pinterest-data-pipeline819.code-workspace
@@ -5,3 +6,4 @@ __pycache__/
 .Pinterest_data_pipeline.ipynb
 .Mount S3 bucket to Databricks.ipynb
 .list.md
+authentication_credentials_example.csv

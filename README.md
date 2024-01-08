@@ -128,7 +128,7 @@ The pipeline facilitates social media analytics, of stream data in real-time and
 
 `Batch Processing:`
 
-1. Initiate configured AWS cloud services
+1. Initiate configured AWS EC2 Client machine and start Kafka REST API
 
      [example\-key\-pair.pem](example-key-pair.pem) located in project directory
 
