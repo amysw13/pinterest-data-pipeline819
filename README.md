@@ -155,6 +155,8 @@ The pipeline facilitates social media analytics, of stream data in real-time and
 
 ![](gif/1.Kinesis_Data_Stream_creation_small.gif)
 
+![Amazon API Gateway Badge](https://img.shields.io/badge/Amazon%20API%20Gateway-FF4F8B?logo=amazonapigateway&logoColor=fff&style=plastic)
+
 > API Kinesis proxy integration, resources and method configuration ⤵️
 
 ![](gif/2.API_resource_methods_kinesis_streams_small.gif)
@@ -235,7 +237,7 @@ The pipeline facilitates social media analytics, of stream data in real-time and
 
 ![Amazon S3 Badge](https://img.shields.io/badge/Amazon%20S3-569A31?logo=amazons3&logoColor=fff&style=plastic) - S3 simple storage for objects
 
-![Amazon API Gateway Badge](https://img.shields.io/badge/Amazon%20API%20Gateway-FF4F8B?logo=amazonapigateway&logoColor=fff&style=plastic) - Creating REST APIs with proxy integrations
+![Amazon API Gateway Badge](https://img.shields.io/badge/Amazon%20API%20Gateway-FF4F8B?logo=amazonapigateway&logoColor=fff&style=plastic) - Creating REST APIs with proxy integrations, child resources and methods.
 
 ![Apache Airflow Badge](https://img.shields.io/badge/Apache%20Airflow-017CEE?logo=apacheairflow&logoColor=fff&style=plastic) - Orchestrating workflows on a schedule with DAGs
 
@@ -250,8 +252,8 @@ The pipeline facilitates social media analytics, of stream data in real-time and
 - 📂 __pinterest\-data\-pipeline819__
   - 📄 [124714cdee67\_dag.py](124714cdee67_dag.py)
   - 📄 [README.md](README.md)
-  - 📄 [Reading and cleaning data from Kinesis Data Stream.ipynb(Reading%20and%20cleaning%20data%20from%20Kinesis%20Data%20Stream.ipynb)
-  - 📄 [Reading, cleaning and querying Pinterest Data from mounted S3 bucketusing Sparks.ipynb(Reading%2C%20cleaning%20and%20querying%20Pinterest%20Data%20from%20mounted%203%20bucket%20using%20Sparks.ipynb)
+  - 📄 [Reading and cleaning data from Kinesis Data Stream.ipynb](Reading%20and%20cleaning%20data%20from%20Kinesis%20Data%20Stream.ipynb)
+  - 📄 [Reading, cleaning and querying Pinterest Data from mounted S3 bucketusing Sparks.ipynb](Reading%2C%20cleaning%20and%20querying%20Pinterest%20Data%20from%20mounted%203%20bucket%20using%20Sparks.ipynb)
   - 📄 [example\-key\-pair.pem](example-key-pair.pem)
   - 📂 __gif__
     - 📄 [1.EC2\_key\_pair\_small.gif](gif/1.EC2_key_pair_small.gif)
