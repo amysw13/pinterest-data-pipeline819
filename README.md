@@ -220,18 +220,17 @@ The pipeline facilitates social media analytics, of stream data in real-time and
 `Stream Processing:`
 
 1. Run python script to stream data to Kinesis Data streams with configured REST API
-  
-   [credentials_template.yaml](Credentials/credentials_template.yaml) located in Credentials directory. Ensure AWS RDS source credentials are altered
+
+  [credentials_template.yaml](Credentials/credentials_template.yaml) located in Credentials directory. Ensure AWS RDS source credentials are altered
 
   ```py
     Pinterest_data_ingestion.py
 
     # Run function to initiate pinterest data ingestion to Databricks with AWS Kinesis
     Pinterest_data_kinesis_data_streams()
-
   ```
-  
-1. Read in streaming data to Databricks with Databricks Notebook, and clean and write stream data to delta tables.
+
+2. Read in streaming data to Databricks with Databricks Notebook, and clean and write stream data to delta tables.
 
    ```shell
    # Databricks Notebook
@@ -265,7 +264,6 @@ The pipeline facilitates social media analytics, of stream data in real-time and
 ## File Structure 📂
 
 📂 __pinterest\-data\-pipeline819__
-(124714cdee67-key-pair.pem)
 - 📄 [124714cdee67\_dag.py](124714cdee67_dag.py)
 - 📂 __Credentials__
   - 📄 [authentication\_credentials\_example.csv](Credentials/authentication_credentials_example.csv)
