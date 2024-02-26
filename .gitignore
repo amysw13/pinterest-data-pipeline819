@@ -7,3 +7,4 @@ __pycache__/
 .Mount S3 bucket to Databricks.ipynb
 .list.md
 authentication_credentials_example.csv
+Credentials/.pinterest_creds.yaml

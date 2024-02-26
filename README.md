@@ -6,6 +6,7 @@
   - [Table of contents](#table-of-contents)
     - [Description](#description)
     - [Aim](#aim)
+    - [Achievement Outcomes 📖](#achievement-outcomes-)
       - [Configuration Troubleshooting](#configuration-troubleshooting)
   - [Prerequisites 🔧](#prerequisites-)
     - [AWS Configuration Example ⚙️](#aws-configuration-example-️)
@@ -17,24 +18,26 @@
 
 ### Description
 
-AWS-hosted end-to-end data pipeline inspired by Pinterest's experiment processing pipeline.
-Pinterest crunches billions of data points every day to decide how to provide more value to their users. In this project, you'll create a similar system using the AWS Cloud.
+AWS-hosted end-to-end ETL data pipeline inspired by Pinterest's experiment processing pipeline.
+Pinterest crunches billions of data points every day to decide how to provide more value to their users.
 
 The pipeline is developed using a Lambda architecture. The batch data is ingested using AWS API Gateway and AWS MSK and then stored in an AWS S3 bucket. The batch data is then read from the S3 bucket into Databricks where it is processed using Apache Spark.
 
 The streaming data is read near real-time from AWS Kinesis using Spark Structured Streaming in Databricks and stored in Databricks Delta Tables for long term storage.
 
-![End-to-end data pipeline AWS cloud architecture detailed](img/Pinterest_architecture.detailed.png "End-to-end data pipeline AWS cloud architecture, integrated with Databricks and displaying IAM and permission access points.")
-> End-to-end data pipeline AWS cloud architecture, integrated with Databricks and displaying IAM and permission access points.
+![End-to-end data pipeline AWS cloud architecture detailed](img/Pinterest_architecture.detailed.png "End-to-end ETL data pipeline AWS cloud architecture, integrated with Databricks and displaying IAM and permission access points.")
+> End-to-end ETL data pipeline AWS cloud architecture, integrated with Databricks and displaying IAM and permission access points.
 
 ### Aim
 
-Build an end-to-end data pipeline using AWS-hosted cloud technologies, integrated with Databricks for processing and long-term storage.
+Build an end-to-end data ETL pipeline using AWS-hosted cloud technologies, integrated with Databricks for processing and long-term storage.
 
 The pipeline facilitates social media analytics, of stream data in real-time and of data at rest for sentimental analysis, trending categories and user engagement.
 
 <details>
-<summary><h3>Achievement Outcomes📖</h3></summary>
+<summary><h3>Achievement Outcomes 📖</h3></summary>
+
+### Achievement Outcomes 📖
 
 ![Amazon EC2 Badge](https://img.shields.io/badge/Amazon%20EC2-F90?logo=amazonec2&logoColor=fff&style=plastic)
 ![Apache Kafka Badge](https://img.shields.io/badge/Apache%20Kafka-231F20?logo=apachekafka&logoColor=fff&style=plastic)
@@ -169,7 +172,7 @@ The pipeline facilitates social media analytics, of stream data in real-time and
 
 1. Initiate configured AWS EC2 Client machine and start Kafka REST API
 
-     [example\-key\-pair.pem](example-key-pair.pem) located in project directory
+     [example\-key\-pair.pem](Credentials/example-key-pair.pem) located in Credentials directory
 
       ```bash
       # Make sure access to key-pair.pem is not public
@@ -185,12 +188,18 @@ The pipeline facilitates social media analytics, of stream data in real-time and
       ```
 
 2. Run python script to ingest data to S3 bucket with REST API requests
+  
+   [credentials_template.yaml](Credentials/credentials_template.yaml) located in Credentials directory. Ensure AWS RDS source credentials are altered
 
      ```py
-     user_posting_emulation.py
+     Pinterest_data_ingestion.py
+
+    # Run function to initiate pinterest data ingestion to S3 buckets
+    Pinterest_data_kafka_data_batch()  
+
      ```
 
-3. `Airflow` DAG to trigger Databricks Notebook on a specified schedule in AWS MWAA Airflow UI
+3. `Airflow` DAG to trigger Databricks Notebook on a specified schedule (e.g. Daily) in AWS MWAA Airflow UI
 
     ```py
     # Airflow DAG script, loaded into S3 bucket and connected to AWS MWAA environment
@@ -211,12 +220,18 @@ The pipeline facilitates social media analytics, of stream data in real-time and
 `Stream Processing:`
 
 1. Run python script to stream data to Kinesis Data streams with configured REST API
+  
+   [credentials_template.yaml](Credentials/credentials_template.yaml) located in Credentials directory. Ensure AWS RDS source credentials are altered
 
-    ```py
-    user_posting_emulation_streaming.py
-    ```
+  ```py
+    Pinterest_data_ingestion.py
 
-2. Read in streaming data to Databricks with Databricks Notebook, and clean and write stream data to delta tables.
+    # Run function to initiate pinterest data ingestion to Databricks with AWS Kinesis
+    Pinterest_data_kinesis_data_streams()
+
+  ```
+  
+1. Read in streaming data to Databricks with Databricks Notebook, and clean and write stream data to delta tables.
 
    ```shell
    # Databricks Notebook
@@ -249,20 +264,23 @@ The pipeline facilitates social media analytics, of stream data in real-time and
 
 ## File Structure 📂
 
-- 📂 __pinterest\-data\-pipeline819__
-  - 📄 [124714cdee67\_dag.py](124714cdee67_dag.py)
-  - 📄 [README.md](README.md)
-  - 📄 [Reading and cleaning data from Kinesis Data Stream.ipynb](Reading%20and%20cleaning%20data%20from%20Kinesis%20Data%20Stream.ipynb)
-  - 📄 [Reading, cleaning and querying Pinterest Data from mounted S3 bucketusing Sparks.ipynb](Reading%2C%20cleaning%20and%20querying%20Pinterest%20Data%20from%20mounted%203%20bucket%20using%20Sparks.ipynb)
-  - 📄 [example\-key\-pair.pem](example-key-pair.pem)
-  - 📂 __gif__
-    - 📄 [1.EC2\_key\_pair\_small.gif](gif/1.EC2_key_pair_small.gif)
-    - 📄 [1.Kinesis\_Data\_Stream\_creation\_small.gif](gif/1.Kinesis_Data_Stream_creation_small.gif)
-    - 📄 [2.API\_resource\_methods\_kinesis\_streams\_small.gif](gif/2.API_resource_methods_kinesis_streams_small.gif)
-    - 📄 [2.EC2\_ssh\_connect\_small.gif](gif/2.EC2_ssh_connect_small.gif)
-    - 📄 [3.IAM\_role\_trust\_policy\_ec2\_access\_small.gif](gif/3.IAM_role_trust_policy_ec2_access_small.gif)
-  - 📂 __img__
-    - 📄 [Airflow\_dag.png](img/Airflow_dag.png)
-    - 📄 [Pinterest\_architecture.detailed.png](img/Pinterest_architecture.detailed.png)
-  - 📄 [user\_posting\_emulation.py](user_posting_emulation.py)
-  - 📄 [user\_posting\_emulation\_streaming.py](user_posting_emulation_streamingpy)
+📂 __pinterest\-data\-pipeline819__
+(124714cdee67-key-pair.pem)
+- 📄 [124714cdee67\_dag.py](124714cdee67_dag.py)
+- 📂 __Credentials__
+  - 📄 [authentication\_credentials\_example.csv](Credentials/authentication_credentials_example.csv)
+  - 📄 [credentials\_template.yaml](Credentials/credentials_template.yaml)
+  - 📄 [example\-key\-pair.pem](Credentials/example-key-pair.pem)
+- 📄 [Pinterest\_data\_ingestion.py](Pinterest_data_ingestion.py)
+- 📄 [README.md](README.md)
+- 📄 [Reading and cleaning data from Kinesis Data Stream.ipynb](Reading%20and%20cleaning%20data%20from%20Kinesis%20Data%20Stream.ipynb)
+- 📄 [Reading, cleaning and querying Pinterest Data from mounted S3 bucket using Sparks.ipynb](Reading%2C%20cleaning%20and%20querying%20Pinterest%20Data%20from%20mounted%20S3%20bucket%20using%20Sparks.ipynb)
+- 📂 __gif__
+  - 📄 [1.EC2\_key\_pair\_small.gif](gif/1.EC2_key_pair_small.gif)
+  - 📄 [1.Kinesis\_Data\_Stream\_creation\_small.gif](gif/1.Kinesis_Data_Stream_creation_small.gif)
+  - 📄 [2.API\_resource\_methods\_kinesis\_streams\_small.gif](gif/2.API_resource_methods_kinesis_streams_small.gif)
+  - 📄 [2.EC2\_ssh\_connect\_small.gif](gif/2.EC2_ssh_connect_small.gif)
+  - 📄 [3.IAM\_role\_trust\_policy\_ec2\_access\_small.gif](gif/3.IAM_role_trust_policy_ec2_access_small.gif)
+- 📂 __img__
+  - 📄 [Airflow\_dag.png](img/Airflow_dag.png)
+  - 📄 [Pinterest\_architecture.detailed.png](img/Pinterest_architecture.detailed.png)
