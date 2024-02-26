@@ -208,10 +208,10 @@ The pipeline facilitates social media analytics, of stream data in real-time and
 
     > ![Airflow UI](img/Airflow_dag.png "Airflow UI testing triggering DAG on a daily schedule.")
 
-4. Mount S3 bucket to configured Databricks workspace and read in batch data for processing with Databricks Notebook
+4. [Mount S3 bucket](Mount_S3_bucket_to_Databricks.ipynb) to configured Databricks workspace and read in batch data for processing with Databricks Notebook
 
    ```shell
-   # Databricks Notebook
+   # Airflow will trigger Databricks Notebook below, that will mount S3 bucket and run data transformations
    Reading, cleaning and querying Pinterest Data from mounted S3 bucket using Sparks.ipynb
    ```
 
